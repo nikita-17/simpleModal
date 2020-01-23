@@ -90,7 +90,7 @@ export default class ResultTable extends Component {
           style={[styles.modal, { top: this.state.animation }]}
           {...this.state.panResponder.panHandlers}>
           <Text style={styles.dragHandle}>====</Text>
-          <ScrollView onScroll={this.handleScroll}>
+          <Animated.ScrollView scrollEventThrottle={1} onScroll={this.handleScroll}>
             <View onStartShouldSetResponder={() => this.state.expanded}>
               <Text style={{ fontSize: 40 }}>Lorem Ipsum1</Text>
               <Text style={{ fontSize: 40 }}>Lorem Ipsum2</Text>
@@ -131,7 +131,7 @@ export default class ResultTable extends Component {
               <Text style={{ fontSize: 40 }}>Lorem Ipsum6</Text>
               <Text style={{ fontSize: 40 }}>Lorem Ipsum7</Text>
             </View>
-          </ScrollView>
+          </Animated.ScrollView>
         </Animated.View>
       </View>
     );
