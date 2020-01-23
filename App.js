@@ -22,7 +22,10 @@ export default class ResultTable extends Component {
       onPanResponderMove: (event, gesture) => {
         var diff = gesture.moveY - gesture.y0;
         Animated.timing(this.state.animation, {
-          toValue: this.state.expanded ? height*0.1+diff: height*0.4+diff,
+          toValue:
+            this.state.expanded
+            ? diff < 0 ? height * 0.1 : height * 0.1 + diff
+            : diff < -height * 0.3 ? height * 0.1 : height * 0.4 + diff,
           duration: 100
         }).start();
       },
